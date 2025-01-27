@@ -1,0 +1,143 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+
+  &__container {
+    height: 86px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    display: block;
+    position: relative;
+    width: 130px;
+    height: 38px;
+    transition: all 0.3s ease 0s;
+    z-index: 6;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: translateY(2px);
+      filter: invert(0.3);
+    }
+
+    &.header__logo_above-nav {
+      filter: invert(0.9);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+  }
+  &__button {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    img {
+      width: 24px;
+      height: 24px;
+      transition: all 0.3s ease 0s;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+
+    &:active {
+      transform: translateY(2px);
+      filter: invert(0.3);
+    }
+
+    &_phone {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      gap: 20px;
+      z-index: 2;
+
+      p {
+        display: none;
+        white-space: nowrap;
+        font-size: 12px;
+        color: $t-c;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+      }
+
+      @include on-tablet {
+        width: 24px;
+        height: 24px;
+        overflow: hidden;
+        p {
+          display: block;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: $t-c;
+            transition: all 0.3s ease 0s;
+            opacity: 0;
+          }
+
+          &:hover {
+            &::after {
+              opacity: 1;
+            }
+          }
+        }
+
+        &:hover {
+          width: auto;
+
+          p {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    &_menu {
+      position: relative;
+      z-index: 7;
+
+      img:last-child {
+        display: none;
+      }
+
+      &_active {
+        img:first-child {
+          display: none;
+        }
+        img:last-child {
+          display: block;
+        }
+      }
+    }
+  }
+}

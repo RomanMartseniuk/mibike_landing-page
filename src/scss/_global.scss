@@ -1,0 +1,24 @@
+body {
+  background-color: $bg-c;
+  color: $t-c;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  scroll-behavior: smooth;
+
+  &.body_overflow-hidden {
+    overflow: hidden;
+  }
+}
+
+[class*='__container'] {
+  max-width: 280px;
+  margin: auto;
+
+  @include on-tablet {
+    max-width: 600px;
+  }
+
+  @include on-desktop {
+    max-width: 1020px;
+  }
+}

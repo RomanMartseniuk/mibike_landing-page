@@ -1,0 +1,155 @@
+.details {
+  padding-top: 46px;
+  padding-bottom: 40px;
+
+  @include on-tablet {
+    padding-bottom: 60px;
+    padding-top: 60px;
+  }
+
+  @include on-desktop {
+    padding-top: 72px;
+    padding-bottom: 90px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    font-size: 32px;
+    letter-spacing: -1.5px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: capitalize;
+
+    @include on-tablet {
+      font-size: 48px;
+    }
+
+    @include on-desktop {
+      font-size: 64px;
+    }
+  }
+
+  &__articles {
+    margin-top: 48px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+
+    @include on-tablet {
+      gap: 48px;
+      margin-bottom: 48px;
+      margin-top: 60px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    padding-block: 14.5px;
+    background-color: $t-c;
+    color: $bg-c;
+    border-radius: 40px;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      box-shadow: 1px 4px 16px 0 #e8e8f066;
+    }
+
+    &:active {
+      box-shadow: 1px 4px 16px 0 #e8e8f0a3;
+    }
+
+    @include on-tablet {
+      width: 392px;
+      margin: auto;
+    }
+
+    @include on-desktop {
+      width: 324px;
+    }
+  }
+}
+
+.article-details {
+  width: 100%;
+  &__images {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 16px;
+
+    &_reversed {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__image {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    display: block;
+
+    img {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s ease 0s;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+    }
+
+    @include on-tablet {
+      height: 187px;
+      &:first-child {
+        flex-basis: 392px;
+      }
+      &:last-child {
+        flex-basis: 184px;
+      }
+    }
+
+    @include on-desktop {
+      height: 321px;
+      &:first-child {
+        flex-basis: 672px;
+      }
+      &:last-child {
+        flex-basis: 324px;
+      }
+    }
+  }
+
+  &__title {
+    display: block;
+    font-size: 24px;
+    line-height: 1.4;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 1.4;
+
+    @include on-desktop {
+      width: 672px;
+    }
+  }
+}
